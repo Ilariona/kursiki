@@ -1,0 +1,106 @@
+*{
+  margin: 0;
+  padding: 0; 
+  font-family: 'Indie Flower', cursive;
+}
+.list{
+  margin-left: auto;
+    margin-right: auto;
+  width: 710px;
+}
+.header{
+  text-align: center;
+  width: 600px;
+  margin-bottom: 10px;
+}
+h1{
+  
+  margin: 10px 0 10px 0;
+  color: #4b8e01;
+  
+}
+#myInput{
+  height: 30px;
+  width: 500px;
+  border-radius: 9px;
+}
+.addBtn {
+    padding: 10px;
+    width: 25%;
+    background: #97bd6c;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.addBtn:hover {
+  background-color: #9db5ea;
+  text-shadow:  1px 1px 2px black, 0 0 1em #4fffef;
+}
+
+  .task{
+    
+  }
+
+.task li{
+  margin: 10px;
+    list-style: none;
+    border: 1px solid #00000038;
+    height: 50px;
+    width: auto;
+    border-radius: 10px;
+    box-shadow: inset -19px 10px 42px -27px rgba(0,0,0,0.75);
+  clear: both;
+}
+
+.task li:hover btns{
+}
+
+.task li p{
+  margin: 5px;
+}
+.btns{
+    margin-top: -23px;
+    float: right;
+    height: 53px;
+    display: table-cell;
+    vertical-align: middle;
+}
+.edit{
+    background: #ffb100;
+    margin: 5px;
+    color: #FFF;
+    font-size: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    padding: 6px;
+}
+.edit:hover {
+  background-color: #9db5ea;
+  text-shadow:  1px 1px 2px black, 0 0 1em #4fffef;
+}
+.done{
+     background: #149418;
+    margin: 5px;
+    color: #FFF;
+    font-size: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    padding: 6px;
+}
+.done:hover {
+  background-color: #9db5ea;
+  text-shadow:  1px 1px 2px black, 0 0 1em #4fffef;
+}
+.remove{
+     background: #d60404;
+    margin: 5px;
+    color: #FFF;
+    font-size: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    padding: 6px;
+}
+.remove:hover {
+  background-color: #9db5ea;
+  text-shadow:  1px 1px 2px black, 0 0 1em #4fffef;
+}

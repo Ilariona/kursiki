@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+    <title>to do list</title>
+  </head>
+  <body>
+    <div class="list">
+      <div class="header">
+        <h1>My To Do List</h1>
+        <input title type="text" id="myInput" placeholder="Title...">
+        <span id="btnAdd" onclick="addTask()" class="addBtn" >Add</span>
+      </div>
+      <ul class="task">
+      </ul>
+    </div>
+    
+    <script id="taskTemplate" type="text/x-jquery-tmpl">
+     <li id="li" data-id="${id}"> 
+       <p>${title}</p>
+       <div class="btns">
+         <span onclick="editTask()"class="edit">edit</span>
+         <span class="done">done</span>
+         <span onclick="removeTask(this)" class="remove">remove</span>
+      </div>
+      </li>
+    </script>
+    <script>
+      function addTask() {
+        $.ajax({
+          url: 'http://localhost:9999/api/tasks',
+          method: 'POST',
+          data: {
+            title:$("#myInput").val(),
+            description: 'Some description'
+          },
+          success: function(response) {
+            $( "#taskTemplate" ).tmpl(response.task).appendTo( ".task" );
+            $("#myInput").val("");
+          },
+          error: function(error) {
+            console.log(error);
+          }
+        });
+      }
+    </script>
+    <script>
+      $(document).ready(function(){
+        $.ajax({
+          url: 'http://localhost:9999/api/tasks',
+          method: 'GET',
+          success: function(response) {
+            $( "#taskTemplate" ).tmpl( response.tasks).appendTo( ".task" );
+          },
+          error: function(error) {
+            console.log(error);
+          }
+        })
+      })
+    </script>
+    <script>
+      function removeTask(element){
+        var id=$(element).closest("li").data("id");
+        $.ajax({
+          url: 'http://localhost:9999/api/tasks/'+id,
+          method: 'DELETE',
+          success: function(response) {
+            $(element).closest("li").remove();
+          },
+          error: function(error) {
+            console.log(error);
+          }
+        });
+      }
+    </script>
+
+    <script>
+      function editTask(){
+        $('#li').prepend('<input id="newInp">');
+      
+       
+      }
+    </script>
+    
+  </body>
+</html>
+
+
